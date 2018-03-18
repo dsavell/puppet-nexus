@@ -21,15 +21,15 @@ This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://
 * Downloads Nexus Repository OSS.
 * Installation of Nexus Repository OSS.
 * Nexus Repository OSS configuration.
- - Location of installation.
- - Nexus service user.
+ * Location of installation.
+ * Nexus service user.
 * Systemd service.
 
 ### Setup Requirements
 
 * Module Requirements:
- - [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
- - [puppet-archive](https://forge.puppet.com/puppet/archive)
+ * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
+ * [puppet-archive](https://forge.puppet.com/puppet/archive)
 
 ### Beginning with nexus
 
@@ -69,6 +69,29 @@ class { 'nexus':
 
 ## Reference
 
+### Classes
+
+#### Public classes
+
+* nexus: Main class, includes all other classes.
+
+#### Private classes
+
+* nexus::install: Handles the archive package.
+* nexus::config: Handles the configuration file.
+* nexus::service: Handles the service.
+
 ## Limitations
 
+N/A
+
 ## Development
+
+Puppet modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
+
+For more information, see our [module contribution guide.](https://docs.puppetlabs.com/forge/contributing.html)
+
+### Contributors
+
+To see who's already involved, see the [list of contributors.](https://github.com/dsavell/puppet-nexus/graphs/contributors)
+
