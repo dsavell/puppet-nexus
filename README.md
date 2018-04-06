@@ -1,16 +1,3 @@
-
-# nexus
-
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -25,57 +12,88 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what problem it solves. This is your 30-second elevator pitch for your module. Consider including OS/Puppet version it works with.
+This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss).
 
-You can give more descriptive information in a second paragraph. This paragraph should answer the questions: "What does this module *do*?" and "Why would I use it?" If your module has a range of functionality (installation, configuration, management, etc.), this is the time to mention it.
+[![Build Status](https://travis-ci.org/dsavell/puppet-nexus.svg?branch=master)](https://travis-ci.org/dsavell/puppet-nexus)
 
 ## Setup
 
-### What nexus affects **OPTIONAL**
+### What nexus affects
 
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
+* Downloads Nexus Repository OSS.
+* Installation of Nexus Repository OSS.
+* Nexus Repository OSS configuration.
+  * Location of installation.
+  * Nexus service user.
+* Systemd service.
 
-If there's more that they should know about, though, this is the place to mention:
+### Setup Requirements
 
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
+* Module Requirements:
+  * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
+  * [puppet-archive](https://forge.puppet.com/puppet/archive)
 
 ### Beginning with nexus
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+To install the latest Nexus Repository OSS on your system `include nexus` is enough to get you up and running.
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+All parameters for the nexus module are contained within the main nexus class, so for any function of the module, set the options you want. See the common usages below for examples.
+
+### Install and enable Nexus Repository OSS
+
+```puppet
+include nexus
+```
+
+### Set version of Nexus Repository OSS
+```puppet
+class { 'nexus':
+  md5_hash => '9d3a031c09aea27622568533e28383a5',
+  version  => '3.9.0-01',
+}
+```
+
+### Change root install path (default /opt)
+```Puppet
+class { 'nexus':
+  custom_path => '/data',
+}
+```
+
+### Change Nexus service user
+```puppet
+class { 'nexus':
+  user => 'bob',
+}
+```
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in the README Reference section.
+### Classes
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+#### Public classes
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+* nexus: Main class, includes all other classes.
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+#### Private classes
+
+* nexus::install: Handles the archive package.
+* nexus::config: Handles the configuration file.
+* nexus::service: Handles the service.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there are Known Issues, you might want to include them under their own heading here.
+N/A
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+Puppet modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
 
-## Release Notes/Contributors/Etc. **Optional**
+For more information, see our [module contribution guide.](https://docs.puppetlabs.com/forge/contributing.html)
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+### Contributors
+
+To see who's already involved, see the [list of contributors.](https://github.com/dsavell/puppet-nexus/graphs/contributors)
+
