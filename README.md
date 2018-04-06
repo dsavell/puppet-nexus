@@ -14,6 +14,8 @@
 
 This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss).
 
+[![Build Status](https://travis-ci.org/dsavell/puppet-nexus.svg?branch=master)](https://travis-ci.org/dsavell/puppet-nexus)
+
 ## Setup
 
 ### What nexus affects
