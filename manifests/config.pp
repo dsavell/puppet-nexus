@@ -28,7 +28,7 @@ class nexus::config {
     ensure  => directory,
     owner   => $user,
     group   => $user,
-    resurse => true,
+    recurse => true,
   }
 
   file { "${custom_path}/nexus":

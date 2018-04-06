@@ -33,4 +33,5 @@ class nexus::service {
     ensure => 'running',
     enable => true,
   }
+
 }
