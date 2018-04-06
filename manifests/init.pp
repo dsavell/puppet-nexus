@@ -14,7 +14,7 @@ class nexus (
 
   String $custom_path  = $::nexus::params::custom_path,
   String $dir_name     = $::nexus::params::dir_name,
-  String $file_name    = $::nexus::params::file_name,
+  String $download_url = $::nexus::params::download_url,
   String $install_path = $::nexus::params::install_path,
   String $md5_hash     = $::nexus::params::md5_hash,
   String $user         = $::nexus::params::user,
@@ -29,4 +29,5 @@ class nexus (
   Class['::nexus::install']
     -> Class['::nexus::config']
     ~> Class['::nexus::service']
+
 }

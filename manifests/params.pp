@@ -8,12 +8,12 @@
 #
 class nexus::params {
 
+  $version      = '3.10.0-04'
   $custom_path  = '/opt'
   $dir_name     = "nexus-${version}"
-  $file_name    = "${dir_name}-unix.tar.gz"
+  $download_url = "https://download.sonatype.com/nexus/3/nexus-${version}-unix.tar.gz"
   $install_path = "${custom_path}/${dir_name}"
-  $md5_hash     = '9d3a031c09aea27622568533e28383a5'
+  $md5_hash     = '9be12ad6866c4846448c7e666cd5d4e5'
   $user         = 'nexus'
-  $version      = 'latest'
 
 }
