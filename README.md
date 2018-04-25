@@ -12,7 +12,7 @@
 
 ## Description
 
-This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss).
+This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss) 3.x.
 
 [![Build Status](https://travis-ci.org/dsavell/puppet-nexus.svg?branch=master)](https://travis-ci.org/dsavell/puppet-nexus)
 
@@ -20,9 +20,9 @@ This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://
 
 ### What nexus affects
 
-* Downloads Nexus Repository OSS.
-* Installation of Nexus Repository OSS.
-* Nexus Repository OSS configuration.
+* Downloads Nexus Repository OSS 3.x.
+* Installation of Nexus Repository OSS 3.x.
+* Nexus Repository OSS 3.x configuration.
   * Location of installation.
   * Nexus service user.
 * Systemd service.
@@ -50,8 +50,8 @@ include nexus
 ### Set version of Nexus Repository OSS
 ```puppet
 class { 'nexus':
-  md5_hash => '9d3a031c09aea27622568533e28383a5',
-  version  => '3.9.0-01',
+  md5_hash => '9be12ad6866c4846448c7e666cd5d4e5',
+  version  => '3.10.0-04',
 }
 ```
 
