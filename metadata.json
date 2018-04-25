@@ -2,7 +2,7 @@
   "name": "puppet-nexus",
   "version": "0.1.0",
   "author": "David Savell",
-  "summary": "Installation and configuration of  Sonatype Nexus Repository OSS 3.x",
+  "summary": "Installation and configuration of Sonatype Nexus Repository OSS 3.x",
   "license": "Apache-2.0",
   "source": "https://github.com/dsavell/puppet-nexus",
   "dependencies": [
