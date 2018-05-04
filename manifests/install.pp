@@ -9,10 +9,21 @@
 class nexus::install {
 
   $custom_path  = $::nexus::custom_path
-  $dir_name     = $::nexus::dir_name
   $download_url = $::nexus::download_url
   $install_path = $::nexus::install_path
+  $java_major   = $::nexus::java_major
+  $java_minor   = $::nexus::java_minor
   $md5_hash     = $::nexus::md5_hash
+
+  include ::archive
+  include ::java
+
+  java::oracle { 'jre8' :
+    ensure        => 'present',
+    version_major => $java_major,
+    version_minor => $java_minor,
+    java_se       => 'jre',
+  }
 
   archive { $install_path:
     ensure        => present,
