@@ -30,8 +30,9 @@ This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://
 ### Setup Requirements
 
 * Module Requirements:
-  * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
   * [puppet-archive](https://forge.puppet.com/puppet/archive)
+  * [puppetlabs-java](https://forge.puppet.com/puppetlabs/java)
+  * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
 
 ### Beginning with nexus
 
