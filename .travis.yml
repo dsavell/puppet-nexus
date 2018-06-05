@@ -36,6 +36,7 @@ matrix:
 branches:
   only:
     - master
+    - develop
     - /^v\d/
 notifications:
   email: false
@@ -47,4 +48,4 @@ deploy:
   on:
     tags: true
     all_branches: true
-    condition: "$DEPLOY_TO_FORGE = yes"
+    condition: "$DEPLOY_TO_FORGE = no"
