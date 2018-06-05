@@ -13,16 +13,17 @@ class nexus::install {
   $install_path = $::nexus::install_path
   $java_major   = $::nexus::java_major
   $java_minor   = $::nexus::java_minor
+  $java_se      = $::nexus::java_se
   $md5_hash     = $::nexus::md5_hash
 
   include ::archive
   include ::java
 
-  java::oracle { 'jre8' :
+  java::oracle { "${java_se}8" :
     ensure        => 'present',
     version_major => $java_major,
     version_minor => $java_minor,
-    java_se       => 'jre',
+    java_se       => $java_se,
   }
 
   archive { $install_path:
