@@ -24,12 +24,12 @@ class nexus (
 
 ) inherits nexus::params {
 
-  contain nexus::install
-  contain nexus::config
-  contain nexus::service
-
   Class['::nexus::install']
     -> Class['::nexus::config']
     ~> Class['::nexus::service']
+
+  contain nexus::install
+  contain nexus::config
+  contain nexus::service
 
 }
