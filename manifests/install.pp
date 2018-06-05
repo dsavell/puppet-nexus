@@ -19,7 +19,7 @@ class nexus::install {
   include ::archive
   include ::java
 
-  java::oracle { "${java_se}8" :
+  java::oracle { "${java_se}8":
     ensure        => 'present',
     version_major => $java_major,
     version_minor => $java_minor,

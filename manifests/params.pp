@@ -16,7 +16,7 @@ class nexus::params {
   $md5_hash     = '3fa82f46c53459f6545a6dd6f213d92b'
   $java_major   = '8u172'
   $java_minor   = 'b11'
-  $java_se      =  'jre'
+  $java_se      = 'jre'
   $user         = 'nexus'
 
 }
