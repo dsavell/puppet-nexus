@@ -50,8 +50,8 @@ include nexus
 ### Set version of Nexus Repository OSS
 ```puppet
 class { 'nexus':
-  md5_hash => '9be12ad6866c4846448c7e666cd5d4e5',
-  version  => '3.10.0-04',
+  md5_hash => '6e15a48263e52291e3041ac755417525',
+  version  => '3.11.0-01',
 }
 ```
 
