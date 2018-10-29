@@ -7,39 +7,30 @@
 # David Savell <https://github.com/dsavell>
 #
 class nexus::config {
-
-  $custom_path  = $::nexus::custom_path
-  $install_path = $::nexus::install_path
-  $user         = $::nexus::user
-
-  group { $user:
+  group { $nexus::user:
     ensure => 'present',
   }
 
-  user { $user:
+  user { $nexus::user:
     ensure => 'present',
     system => true,
   }
 
-  file { [
-    $install_path,
-    "${custom_path}/sonatype-work"
-    ]:
+  file { "${nexus::install_path}/sonatype-work":
     ensure  => directory,
-    owner   => $user,
-    group   => $user,
+    owner   => $nexus::user,
+    group   => $nexus::user,
     recurse => true,
   }
 
-  file { "${custom_path}/nexus":
+  file { "${nexus::install_path}/nexus":
     ensure => 'link',
-    target => "${custom_path}/${install_path}",
+    target => "${nexus::install_path}/nexus-${nexus::version}",
   }
 
   file_line { 'nexus_service_user':
-    path  => "${custom_path}/nexus/bin/nexus.rc",
-    line  => "run_as_user=\"${user}\"",
+    path  => "${nexus::install_path}/nexus/bin/nexus.rc",
+    line  => "run_as_user=\"${nexus::user}\"",
     match => '^#run_as_user=""',
   }
-
 }

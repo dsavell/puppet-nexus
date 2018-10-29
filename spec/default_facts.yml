@@ -2,7 +2,14 @@
 #
 # Facts specified here will override the values provided by rspec-puppet-facts.
 ---
-concat_basedir: "/tmp"
+concat_basedir: ""
 ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
+
+kernel: 'Linux'
+kernelversion: '3.10.0'
+osfamily: 'RedHat'
+operatingsystem: 'RedHat'
+operatingsystemmajrelease: '7'
+operatingsystemrelease: '7.5'

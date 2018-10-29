@@ -1,28 +1,30 @@
 # === Class: nexus::install
 #
-# This class is called from nexus for install.
+# This class is called from nexus for installation.
 #
 # === Authors
 #
 # David Savell <https://github.com/dsavell>
 #
 class nexus::install {
-
-  $custom_path  = $::nexus::custom_path
-  $dir_name     = $::nexus::dir_name
-  $download_url = $::nexus::download_url
-  $install_path = $::nexus::install_path
-  $md5_hash     = $::nexus::md5_hash
-
-  archive { $install_path:
-    ensure        => present,
-    extract       => true,
-    extract_path  => $custom_path,
-    source        => $download_url,
-    checksum      => $md5_hash,
-    checksum_type => 'md5',
-    creates       => $install_path,
-    cleanup       => true,
+  java::oracle { "${nexus::java_major}-${nexus::java_minor}":
+    ensure        => 'present',
+    version_major => $nexus::java_major,
+    version_minor => $nexus::java_minor,
+    java_se       => $nexus::java_se,
+    url_hash      => $nexus::java_url_hash,
   }
 
+  archive { $nexus::install_path:
+    ensure        => present,
+    extract       => true,
+    extract_path  => $nexus::install_path,
+    source        => "${nexus::nexus_url}nexus-${nexus::version}-unix.tar.gz",
+    checksum      => $nexus::hash,
+    checksum_type => $nexus::hash_type,
+    creates       => "${nexus::install_path}/nexus-${nexus::version}",
+    cleanup       => true,
+    user          => $nexus::user,
+    group         => $nexus::user,
+  }
 }

@@ -30,8 +30,9 @@ This Puppet module installs and manages [Sonatype Nexus Repository OSS](https://
 ### Setup Requirements
 
 * Module Requirements:
-  * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
   * [puppet-archive](https://forge.puppet.com/puppet/archive)
+  * [puppetlabs-java](https://forge.puppet.com/puppetlabs/java)
+  * [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)
 
 ### Beginning with nexus
 
@@ -50,15 +51,15 @@ include nexus
 ### Set version of Nexus Repository OSS
 ```puppet
 class { 'nexus':
-  md5_hash => '9be12ad6866c4846448c7e666cd5d4e5',
-  version  => '3.10.0-04',
+  hash    => 'ae8cc7891942d71cf12c11e1a98d70c1310e788ab44aa95c5d1e7671cc0187e2',
+  version => '3.14.0-04',
 }
 ```
 
 ### Change root install path (default /opt)
 ```Puppet
 class { 'nexus':
-  custom_path => '/data',
+  install_path => '/data',
 }
 ```
 
@@ -96,4 +97,3 @@ For more information, see our [module contribution guide.](https://docs.puppetla
 ### Contributors
 
 To see who's already involved, see the [list of contributors.](https://github.com/dsavell/puppet-nexus/graphs/contributors)
-
