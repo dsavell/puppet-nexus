@@ -33,8 +33,7 @@ matrix:
 branches:
   only:
     - master
-    - /^v\d/
-    - refactor_new
+    - develop
 notifications:
   email: false
 deploy:
