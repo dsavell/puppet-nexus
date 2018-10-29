@@ -7,16 +7,16 @@
   "source": "https://github.com/dsavell/puppet-nexus",
   "dependencies": [
     {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">=4.25.0 <5.0.0"
+      "name": "puppet/archive",
+      "version_requirement": ">=3.0.0 <4.0.0"
     },
     {
       "name": "puppetlabs/java",
-      "version_requirement": ">=2.4.0 <3.0.0"
+      "version_requirement": ">=3.0.0 <4.0.0"
     },
     {
-      "name": "puppet/archive",
-      "version_requirement": ">=3.0.0 <4.0.0"
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=5.0.0 <6.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -39,7 +39,7 @@
       "version_requirement": ">= 4.7.0 < 6.0.0"
     }
   ],
-  "pdk-version": "1.5.0",
+  "pdk-version": "1.7.1",
   "template-url": "https://github.com/puppetlabs/pdk-templates",
-  "template-ref": "1.5.0-0-gd1b3eca"
+  "template-ref": "tags/1.7.1-0-g810b982"
 }
