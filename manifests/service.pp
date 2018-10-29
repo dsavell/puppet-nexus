@@ -7,16 +7,12 @@
 # David Savell <https://github.com/dsavell>
 #
 class nexus::service {
-
-  $custom_path  = $::nexus::custom_path
-  $user         = $::nexus::user
-
   file { '/etc/systemd/system/nexus.service':
     ensure  => 'file',
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
-    content => template('nexus/nexus.service.erb'),
+    content => epp('nexus/nexus.service.epp'),
   }
 
   exec { 'systemd-reload':
@@ -33,5 +29,4 @@ class nexus::service {
     ensure => 'running',
     enable => true,
   }
-
 }

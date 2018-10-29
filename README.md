@@ -51,15 +51,15 @@ include nexus
 ### Set version of Nexus Repository OSS
 ```puppet
 class { 'nexus':
-  md5_hash => '6e15a48263e52291e3041ac755417525',
-  version  => '3.11.0-01',
+  hash    => 'ae8cc7891942d71cf12c11e1a98d70c1310e788ab44aa95c5d1e7671cc0187e2',
+  version => '3.14.0-04',
 }
 ```
 
 ### Change root install path (default /opt)
 ```Puppet
 class { 'nexus':
-  custom_path => '/data',
+  install_path => '/data',
 }
 ```
 
@@ -97,4 +97,3 @@ For more information, see our [module contribution guide.](https://docs.puppetla
 ### Contributors
 
 To see who's already involved, see the [list of contributors.](https://github.com/dsavell/puppet-nexus/graphs/contributors)
-

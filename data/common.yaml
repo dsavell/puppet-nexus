@@ -1,0 +1,11 @@
+---
+nexus::nexus_url: "https://download.sonatype.com/nexus/3/"
+nexus::hash: 'ae8cc7891942d71cf12c11e1a98d70c1310e788ab44aa95c5d1e7671cc0187e2'
+nexus::hash_type: 'sha256'
+nexus::install_path: '/opt'
+nexus::java_url_hash: '750e1c8617c5452694857ad95c3ee230'
+nexus::java_major: '8u192'
+nexus::java_minor: 'b12'
+nexus::java_se: 'server-jre'
+nexus::user: 'nexus'
+nexus::version: '3.14.0-04'
